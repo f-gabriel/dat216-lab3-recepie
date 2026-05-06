@@ -21,57 +21,50 @@ class RecipeDetail extends StatelessWidget{
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(12)),
       child: Padding(
-            padding: const EdgeInsets.only(
-                        left: AppTheme.paddingMedium,
-                        right: AppTheme.paddingMedium
-                        ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [IconButton(
-                    onPressed: (){
-                    uiController.deselectRecipe();
-                    }, 
-                  icon: Icon(Icons.close)
-                )
-                ],
-                ),
-                Row(children: [
+        padding: const EdgeInsets.only(
+          left: AppTheme.paddingMedium,
+          right: AppTheme.paddingMedium
+            ),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [IconButton(
+                  onPressed: (){
+                  uiController.deselectRecipe();
+                  }, 
+                icon: Icon(Icons.close)
+              )
+            ],
+          ),
+              Row(children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
+                    spacing: AppTheme.paddingMedium,
                     children: [
                       _image(recipe),
-                      Padding(
-                        padding: const EdgeInsets.only(top: AppTheme.paddingTiny),
-                        child:  Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [Text('Ingredienser',
                         style: AppTheme.smallHeading,)],
-                      )
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: AppTheme.paddingTiny),
-                        child:  Text('${recipe.servings} portioner')
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: AppTheme.paddingMedium),
-                        child:  Column(
+                      Text('${recipe.servings} portioner'),
+                      Column(
                           children: [
                             for(final ingredient in recipe.ingredients)
                               Text('${ingredient.amount} ${ingredient.unit} ${ingredient.name}')
                         ],)
-                      ),
                     ],
                   ),
                   Expanded(
-                    child: Padding(padding: const EdgeInsets.only(top: AppTheme.paddingTiny),
+                    child: Padding(padding: const EdgeInsets.only(left: AppTheme.paddingMedium),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        spacing: AppTheme.paddingSmall,
                         children: [
                           Padding(
-                        padding: const EdgeInsets.only(left: AppTheme.paddingMedium),
+                        padding: const EdgeInsets.only(bottom: AppTheme.paddingMedium),
                         child:  Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [Text(recipe.name,
@@ -96,28 +89,17 @@ class RecipeDetail extends StatelessWidget{
                             ]
                             ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: AppTheme.paddingMedium),
-                              child:  Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [Text(recipe.description,
+                             Text(recipe.description,
                                   softWrap: true,
                                   overflow: TextOverflow.ellipsis, 
-                                  maxLines: 2,)],
-                          )
-                        ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: AppTheme.paddingMedium),
-                              child:  Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [Text(
+                                  maxLines: 2,),
+                          
+                            Text(
                                   recipe.instruction,
                                   softWrap: true,
                                   overflow: TextOverflow.ellipsis, 
                                   maxLines: 72,)
-                                  ],
-                      )
-                    )
+                                  
                   ]
                 ),
               )
