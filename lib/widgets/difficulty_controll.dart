@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab2/app_theme.dart';
 import 'package:lab2/util/difficulty.dart';
 import 'package:lab2/model/recipe_database/recipe_handler.dart';
 import 'package:provider/provider.dart';
@@ -27,11 +28,22 @@ class _DificultyControlState extends State<DifficultyControll> {
         );
       }, 
       child: Column(children: [
-        for(final label in Difficulty.labels)
+        RadioListTile(
+            dense: true,
+            title: Text(Difficulty.labels[0]),
+            value: Difficulty.labels[0]
+            ),
+        for(final label in Difficulty.labels.sublist(1))
           RadioListTile(
             dense: true,
-            title: Text(label),
-            value: label)
+            title: Row(children: [
+              SizedBox(child: Difficulty.icon(label)),
+              SizedBox(width: AppTheme.paddingMedium,),
+              Text(label),
+              ]
+            ),
+            value: label
+          )
         ],
       ),
     );

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lab2/widgets/difficulty_controll.dart';
-import 'package:lab2/widgets/ingredient_controll.dart';
-import 'package:lab2/widgets/kitchen_control.dart';
-import 'package:lab2/widgets/price_controll.dart';
+import 'package:lab2/app_theme.dart';
+import 'package:lab2/widgets/control_panel.dart';
 import 'package:lab2/widgets/recipe_area.dart';
-import 'package:lab2/widgets/time_controll.dart';
 
 class MainView extends StatelessWidget {
   const MainView({super.key});
@@ -14,16 +11,23 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row (
+      body: Padding(
+        padding: const EdgeInsets.only(
+          left: AppTheme.paddingMedium,
+          right: AppTheme.paddingMedium,
+          top: AppTheme.paddingMedium,
+          bottom: AppTheme.paddingMedium),
+        child: Row (
+        spacing: AppTheme.paddingMedium,
         children: [
-          _controllPanel(context), 
+          ControlPanel(), 
           RecipeArea()
         ],
-      )
+      ))
     );
   }
 
-  Widget _controllPanel (context, {double width = 320}) {
+  /*Widget _controllPanel (context, {double width = 320}) {
     return Container(
       width: width,
       color: const Color.fromARGB(255, 293, 210, 218),
@@ -42,7 +46,7 @@ class MainView extends StatelessWidget {
         ],
       ),
     );
-  }
+  }*/
 }
 
 

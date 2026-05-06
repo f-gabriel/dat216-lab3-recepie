@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:lab2/app_theme.dart';
+import 'package:lab2/constants/assets.dart';
 import 'package:lab2/model/recipe_database/recipe_handler.dart';
 import 'package:provider/provider.dart';
 
@@ -35,7 +37,21 @@ class _TimeControllState extends State<TimeControll>{
             recipeHandler.setMaxPrice(maxTime);
           },
         ),
-        Text('${_Time.round()} min')
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [Padding(
+              padding: const EdgeInsets.only(
+                right: AppTheme.paddingSmall,
+                left: AppTheme.paddingSmall),
+              child: Image.asset(Assets.timeIcon, height: 16),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: AppTheme.paddingLarge),
+              child: Text('${_Time.round()} min'),
+            ),
+          ],
+        ),
+        //Text('${_Time.round()} min')
       ],
     );
   }
