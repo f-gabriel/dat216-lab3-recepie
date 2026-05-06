@@ -26,6 +26,8 @@ class RecipeDetail extends StatelessWidget{
           right: AppTheme.paddingMedium
             ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -37,7 +39,9 @@ class RecipeDetail extends StatelessWidget{
               )
             ],
           ),
-              Row(children: [
+              Row(
+                spacing: AppTheme.paddingLarge,
+                children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     spacing: AppTheme.paddingMedium,
@@ -57,8 +61,7 @@ class RecipeDetail extends StatelessWidget{
                     ],
                   ),
                   Expanded(
-                    child: Padding(padding: const EdgeInsets.only(left: AppTheme.paddingMedium),
-                      child: Column(
+                    child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         spacing: AppTheme.paddingSmall,
@@ -102,7 +105,7 @@ class RecipeDetail extends StatelessWidget{
                                   
                   ]
                 ),
-              )
+              
             )
           ],
         )
