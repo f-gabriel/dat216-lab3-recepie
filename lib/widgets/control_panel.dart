@@ -13,7 +13,7 @@ class ControlPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context){
-    return Container(
+    return SizedBox(
       width: width,
       //color: const Color.fromARGB(255, 293, 210, 218),
       child: Column(

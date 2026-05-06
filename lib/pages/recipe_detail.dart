@@ -56,7 +56,11 @@ class RecipeDetail extends StatelessWidget{
                       Column(
                           children: [
                             for(final ingredient in recipe.ingredients)
-                              Text('${ingredient.amount} ${ingredient.unit} ${ingredient.name}')
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [Text('${ingredient.amount} ${ingredient.unit} ${ingredient.name}')],
+                              )
+                              
                         ],)
                     ],
                   ),
@@ -65,16 +69,13 @@ class RecipeDetail extends StatelessWidget{
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         spacing: AppTheme.paddingSmall,
-                        children: [
-                          Padding(
-                        padding: const EdgeInsets.only(bottom: AppTheme.paddingMedium),
-                        child:  Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [Text(recipe.name,
-                        style: AppTheme.largeHeading,)],
-                          )
-                        ),
-                      Padding(
+                        children: [Text(
+                            recipe.name,
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis, 
+                            maxLines: 2,
+                        style: AppTheme.largeHeading,),
+                        Padding(
                         padding: const EdgeInsets.only(top: AppTheme.paddingTiny),
                         child:  Row(
                           children: [
@@ -137,7 +138,7 @@ class RecipeDetail extends StatelessWidget{
   }
   Widget _image(Recipe recipe) {
     var square = ClipRect(
-      child: Container(
+      child: SizedBox(
         width: 240, // Square width
         height: 240, // Square height
         child: FittedBox(fit: BoxFit.cover, child: recipe.image),
